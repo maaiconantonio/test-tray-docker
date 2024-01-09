@@ -1,0 +1,54 @@
+version: "1"
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lumen
+
+  nginx:
+    container_name: nginx
+    build: images/nginx
+    command: nginx -g "daemon off;"
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    volumes:
+      - ./lumen:/var/www/html
+
+  nginx-front:
+    container_name: nginx-front
+    build: images/nginx-front
+    command: nginx -g "daemon off;"
+    ports:
+      - "8082:80"
+    volumes:
+      - ./app:/var/www/html
+
+  php:
+    container_name: php
+    build: images/php
+    volumes:
+      - ./lumen:/var/www/html
+    command: php-fpm
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mysql
+
+  php-front:
+    container_name: php-front
+    build: images/php
+    volumes:
+      - ./app:/var/www/html
+    command: php-fpm
+    ports:
+      - "9002:9000"
+    depends_on:
+      - mysql
