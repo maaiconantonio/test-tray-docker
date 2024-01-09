@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "209c5db0-4736-4cdd-bfe3-9246bdc954ed",
+		"name": "Test-Tray",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3782578"
+	},
+	"item": [
+		{
+			"name": "GetSale",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sale",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSaleByVendor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sale/vendor/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sale",
+						"vendor",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSaleToday",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sale/today/true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sale",
+						"today",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVendor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vendor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostVendor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Maicon Teste 3\",\n    \"mail\": \"maaicon.antonio@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/vendor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostSale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vendor_id\": \"1\",\n    \"sale_value\": \"500\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sale",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sale"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
